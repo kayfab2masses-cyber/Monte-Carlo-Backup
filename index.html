@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHMC Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="player-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Premade Characters</h2>
+                <button id="close-player-modal" class="close-button">X</button>
+            </div>
+            <div class="modal-body" id="srd-player-list">
+                </div>
+        </div>
+    </div>
+
+    <div id="adversary-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adversary SRD Library</h2>
+                <button id="close-adversary-modal" class="close-button">X</button>
+            </div>
+            <div class="modal-filters">
+                <label for="srd-tier-filter">Tier:</label>
+                <select id="srd-tier-filter">
+                    <option value="any">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <label for="srd-type-filter">Type:</label>
+                <select id="srd-type-filter">
+                    <option value="any">Any</option>
+                    <option value="Minion">Minion</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Bruiser">Bruiser</option>
+                    <option value="Skulk">Skulk</option>
+                    <option value="Ranged">Ranged</option>
+                    <option value="Support">Support</option>
+                    <option value="Leader">Leader</option>
+                    <option value="Solo">Solo</option>
+                    <option value="Social">Social</option>
+                    <option value="Horde">Horde</option>
+                </select>
+            </div>
+            <div class="modal-body" id="srd-adversary-list">
+                </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="column" id="left-column">
+            <h2>Actions</h2>
+            <div class="action-box">
+                <h3>Add Player from JSON</h3>
+                <textarea id="character-json" class="json-input" rows="5" placeholder="Paste Player JSON here..."></textarea>
+                <button id="add-character-button" class="action-button">Add Player to Pool</button>
+                <button id="open-player-modal" class="action-button">Add Player from Library</button>
+            </div>
+            
+            <div class="action-box">
+                <h3>Add Adversary from JSON</h3>
+                <textarea id="adversary-json" class="json-input" rows="5" placeholder="Paste Adversary JSON here..."></textarea>
+                <button id="add-adversary-button" class="action-button">Add Adversary to Pool</button>
+                <button id="open-adversary-modal" class="action-button">Add Adversary from SRD</button>
+            </div>
+
+            <div class="action-box">
+                <h3>Clear Last Added</h3>
+                <button id="remove-character-button" class="action-button">Remove Last Player</button>
+                <button id="remove-adversary-button" class="action-button">Remove Last Adversary</button>
+            </div>
+        </div>
+
+        <div class="column" id="pool-column">
+            <h2>Library Pools</h2>
+            <div class="pool-box">
+                <h3>Player Pool</h3>
+                <div id="player-pool-list" class="pool-list">
+                    </div>
+            </div>
+            <div class="pool-box">
+                <h3>Adversary Pool</h3>
+                <div id="adversary-pool-list" class="pool-list">
+                    </div>
+            </div>
+        </div>
+
+        <div class="column" id="scene-column">
+            <h2>Active Scene</h2>
+            <div class="pool-box">
+                <h3>Active Party</h3>
+                <div id="active-party-list" class="scene-list">
+                    </div>
+            </div>
+            <div class="pool-box">
+                <h3>Active Adversaries</h3>
+                <div id="active-adversary-list" class="scene-list">
+                    </div>
+            </div>
+        </div>
+
+        <div class="column" id="right-column">
+            <h2>Simulation</h2>
+            <div class="action-box">
+                <button id="run-button" class="action-button">Run Simulation</button>
+                <button id="run-multiple-button" class="action-button">Run 3 Sims</button>
+                <button id="export-log-button" class="action-button">Export Log</button>
+            </div>
+            <div class="log-box">
+                <h3>Simulation Log</h3>
+                <pre id="log-output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
