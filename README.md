@@ -1,5 +1,3 @@
-DHMC Backup 4.0
-
 \# Daggerheart Monte Carlo Simulator
 
 
